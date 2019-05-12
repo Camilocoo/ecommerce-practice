@@ -6,7 +6,12 @@ import Default from "./components/Default";
 import Details from "./components/Details";
 import Navbar from "./components/Navbar";
 import ProductList from "./components/ProductList";
-import {Switch,Route} from "react-router-dom"
+import {Switch,Route} from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStroopwafel,faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core';
+
+library.add(faStroopwafel, faCartPlus);
 
 
 function App() {

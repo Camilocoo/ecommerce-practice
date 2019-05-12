@@ -4,6 +4,7 @@ import Title from "./Title";
 import {storeProducts} from "../data"
 import {ProductConsumer} from "../context";
 
+
 export default class ProductList extends Component{
     state={
         products:storeProducts
@@ -15,15 +16,16 @@ export default class ProductList extends Component{
             <div className="py-5">
                 <div className ="container">
                     <div className="row">
+                    <Title name="our" title ="products"/>
                     <ProductConsumer>
-                        {hello=>{
-                        return <h1>{hello}</h1>
+                        {value=>{return value.products.map((product)=>{
 
-
-
-                        }}
+                            return (
+                            <Product key={product.id} product={product} />
+                            );
+                        })}}
                     </ProductConsumer>
-                        <Title name="our" title ="products"/>
+
                     </div>
                 </div>
             </div>
