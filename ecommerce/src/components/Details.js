@@ -34,7 +34,7 @@ export default class Details extends Component{
                             </Link>
                             <Link
                             disabled={inCart?true:false}
-                            onClick={()=>{value.addToCart(id)}}
+                            onClick={()=>{value.addToCart(id);value.openModal(id);}}
                             className ="btn btn-secondary"
                             to="#"
                             >
