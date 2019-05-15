@@ -9,10 +9,10 @@ import ProductList from "./components/ProductList";
 import {Switch,Route} from "react-router-dom";
 import Modal from "./components/Modal"
 
-import { faStroopwafel,faCartPlus } from '@fortawesome/free-solid-svg-icons';
+import { faStroopwafel,faCartPlus,faTrash } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
-library.add(faStroopwafel, faCartPlus);
+library.add(faStroopwafel, faCartPlus, faTrash);
 
 
 function App() {
