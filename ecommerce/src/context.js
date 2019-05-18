@@ -87,8 +87,8 @@ increment =(id) =>{
     const selectedProduct = tempCart.find(item=>item.id===id);
     const index = tempCart.indexOf(selectedProduct);
     const product =tempCart[index];
-    product.count = product.count +1; 
-    product.total = product.count*product.price; 
+    product.count = product.count +1;
+    product.total = product.count*product.price;
 
     this.setState(()=>{
             return{
@@ -99,7 +99,21 @@ increment =(id) =>{
 
 }
 decrement =(id) =>{
-    console.log("this is the decrement method");
+    let tempCart =[...this.state.cart]
+    const selectedProduct= tempCart.find(item=>item.id===id);
+    const index = tempCart.indexOf(selectedProduct);
+    const product = tempCart[index];
+    product.count = product.count -1;
+    if(product.count===0){
+        this.removeItem(id);
+    }else{
+        product.total = product.count * product.price;
+        this.setState(()=>{
+            return{
+                cart:[...tempCart]
+            }
+    },()=>{this.addTotals()})
+    }
 }
 removeItem  =(id) =>{
     let tempProducts= [...this.state.products];
@@ -108,14 +122,14 @@ removeItem  =(id) =>{
     const index = tempProducts.indexOf(this.getItem(id));
     let removedProduct = tempProducts[index];
     removedProduct.inCart=false;
-    removedProduct.count =0; 
-    removedProduct.total= 0; 
+    removedProduct.count =0;
+    removedProduct.total= 0;
 
     this.setState(()=>{
         return {
         cart:[...tempCart],
         products:[...tempProducts],
-        
+
         };
     },()=>{this.addTotals();})
 }
